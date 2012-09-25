@@ -111,9 +111,9 @@ class IFrameAutoHeight extends CWidget
         }
 
         if ($this->debug == true) {
-            $this->scriptFile = $this->baseUrl . '/jquery.iframe-auto-height.plugin.1.7.0.js';
+            $this->scriptFile = $this->baseUrl . '/jquery.iframe-auto-height.plugin.1.8.0.js';
         } else {
-            $this->scriptFile = $this->baseUrl . '/jquery.iframe-auto-height.plugin.1.7.0.min.js';
+            $this->scriptFile = $this->baseUrl . '/jquery.iframe-auto-height.plugin.1.8.0.min.js';
         }
 
         $this->registerClientScripts();

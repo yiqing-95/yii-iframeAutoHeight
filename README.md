@@ -56,6 +56,11 @@ extract  it to protected/extensions dir .  (actually any dir if you want ) and t
 
 ~~~
 
+~~~
+[php]
+ $("#contentFrame").attr("src","anotherUrl");
+~~~
+
 
 ##Resources
 
