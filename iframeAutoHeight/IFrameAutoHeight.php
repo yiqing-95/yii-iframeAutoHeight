@@ -57,8 +57,13 @@ class IFrameAutoHeight extends CWidget
     /**
      * @var string
      */
+    public $jsVersion = '1.9.0';
+
+    /**
+     * @var string
+     */
     public $callback = 'js: function(callbackObject) {
-            var m = "new size is " + callbackObject.newFrameHeight;
+            //var m = "new size is " + callbackObject.newFrameHeight;
             window.console && console.log(m) || alert(m);
         }';
 
@@ -111,22 +116,12 @@ class IFrameAutoHeight extends CWidget
         }
 
         if ($this->debug == true) {
-            $this->scriptFile = $this->baseUrl . '/jquery.iframe-auto-height.plugin.1.8.0.js';
+            $this->scriptFile = $this->baseUrl . "/jquery.iframe-auto-height.plugin.{$this->jsVersion}.js";
         } else {
-            $this->scriptFile = $this->baseUrl . '/jquery.iframe-auto-height.plugin.1.8.0.min.js';
+            $this->scriptFile = $this->baseUrl . "/jquery.iframe-auto-height.plugin.{$this->jsVersion}.min.js";
         }
 
         $this->registerClientScripts();
-    }
-
-
-    /**
-     * @return void
-     * this method is usually for you to render html mark up
-     */
-    public function  run()
-    {
-
     }
 
 
@@ -142,7 +137,7 @@ class IFrameAutoHeight extends CWidget
         } else {
             $assetsUrl = Yii::app()->assetManager->publish($assetsPath);
         }
-       $this->baseUrl = $assetsUrl; // $this->assetsUrl = $assetsUrl;
+        $this->baseUrl = $assetsUrl; // $this->assetsUrl = $assetsUrl;
         return $this;
     }
 
@@ -184,8 +179,9 @@ SETUP;
 
 
     /**
-     * @param $name
-     * @param $value
+     * @param string $name
+     * @param mixed $value
+     * @return mixed|void
      */
     public function __set($name, $value)
     {
@@ -214,10 +210,4 @@ SETUP;
         return $this;
     }
 
-    protected function registerCssFiles()
-    {
-
-    }
-
 }
-
